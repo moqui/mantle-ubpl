@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="seed">
+    <!-- the subscreen -->
+    <moqui.screen.SubscreensItem screenLocation="component://webroot/screen/webroot/apps.xml"
+        subscreenName="ubpl" subscreenLocation="component://mantle-ubpl/screen/ubpl.xml"
+        menuTitle="Mantle - UBPL" menuIndex="20" menuInclude="N"/>
+
+    <!-- authz/permission for admin -->
+    <moqui.security.ArtifactGroup artifactGroupId="MANTLE_UBPL" description="Mantle - UBPL (via root screen)"/>
+    <moqui.security.ArtifactGroupMember artifactGroupId="MANTLE_UBPL" artifactName="component://mantle-ubpl/screen/ubpl.xml"
+        artifactTypeEnumId="AT_XML_SCREEN" inheritAuthz="Y"/>
+    <moqui.security.ArtifactAuthz artifactAuthzId="MANTLE_UBPL_ALL" userGroupId="ADMIN" artifactGroupId="MANTLE_UBPL"
+        authzTypeEnumId="AUTHZT_ALWAYS" authzActionEnumId="AUTHZA_ALL"/>
+</entity-facade-xml>
